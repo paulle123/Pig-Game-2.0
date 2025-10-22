@@ -7,6 +7,7 @@ rolled = 0
 score1 = 0
 score2 = 0
 winner = 0
+currentPlayersTurn = 0
 
 def takeTurn(): #returns players decision and information
     
@@ -27,7 +28,10 @@ def diceRoll(): #rolls random number, part of players decision
 def resetTurnValues(): #reset on game restart or turn change
     pass 
 def switchTurn(): #swap player controls
-    pass 
+    if(currentPlayersTurn == 1):
+        currentPlayersTurn = 2
+    else:
+        currentPlayersTurn = 1
 def addTurnScore(): #add turn total
     pass
 def addSafeScore(): #turn total
@@ -149,6 +153,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
