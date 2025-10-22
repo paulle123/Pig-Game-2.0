@@ -1,11 +1,18 @@
 #Author: Pavlo Vysotin
-intro()
-rollDice()
-takeTurn()
-resetTurnValues()
-switchTurn()
-addScore()
-winner()
+def intro()
+    pass
+def diceRoll()
+    pass
+def takeTurn()
+    pass
+def resetTurnValues()
+    pass
+def switchTurn()
+    pass
+def addScore()
+    pass
+def winner()
+    pass
 
 
 #import a random module
@@ -80,6 +87,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
