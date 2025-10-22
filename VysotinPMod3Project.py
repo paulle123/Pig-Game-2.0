@@ -1,4 +1,4 @@
-#Author: Pavlo Vysotin    
+#Authors: Pavlo Vysotin, Brice Moeller  
 
 #import random module
 import random
@@ -165,6 +165,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
