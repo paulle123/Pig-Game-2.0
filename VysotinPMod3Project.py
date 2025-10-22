@@ -4,61 +4,75 @@
 import random
 
 rolled = 0
+score1 = 0
+score2 = 0
+winner = 0
 
-def takeTurn() #returns players decision and information
+def takeTurn(): #returns players decision and information
     
     rollOrHold = input("Roll(r)\Hold(h)?: ") #also check if it is valid
     rollOrHold = rollOrHold.lower()
-    if (rollOrHold is "r" or rollOrHold is "h"):
+    if (rollOrHold == "r" or rollOrHold == "h"):
         return rollOrHold
     else:
         takeTurn()
     
-def diceRoll() #rolls random number, part of players decision
+def diceRoll(): #rolls random number, part of players decision
     rolled = random.randint(1,6) #declare rolled value
     print("Roll: ", rolled)  
-    if (rolled != 1)
+    if (rolled != 1):
         return True
     else:
         return False
-def resetTurnValues() #reset on game restart or turn change
-    pass =
-def switchTurn() #swap player controls
+def resetTurnValues(): #reset on game restart or turn change
     pass 
-def addTurnScore() #add turn total
-def addSafeScore() #turn total
+def switchTurn(): #swap player controls
     pass 
-def winner() #print winner text and give option to restart
+def addTurnScore(): #add turn total
+    pass
+def addSafeScore(): #turn total
+    pass 
+def winner(): #print winner text and give option to restart
     pass 
     
 
-def main() #intro, while loop, outro, 
-#intro
-print("Let's Play the Pig Game!")
-print("=======GOOD LUCK========")
-print("Player 1 score: ", score1)
-print("Player 2 score: ", score2)
-#while loop()
-while()#scores < 50
-    if (takeTurn() is "r"):
-        if (diceRoll()): #if dice roll is not 1
-            resetTurnValues()
+def main(): #intro, while loop, outro,
+    rolled = 0
+    score1 = 0
+    score2 = 0
+    winner = 0
+
+    currentPlayersTurn = random.randint(1,2) 
+    
+    
+    #intro
+    print("Let's Play the Pig Game!")
+    print("=======GOOD LUCK========")
+    print("Player 1 score: ", score1)
+    print("Player 2 score: ", score2)
+    #while loop()
+    while(): #scores < 50
+        if (takeTurn() == "r"):
+            if (diceRoll()): #if dice roll is not 1
+                resetTurnValues()
+                switchTurn()
+            else: #if dice roll is 1          
+                addScore()
             switchTurn()
-        else: #if dice roll is 1          
-            addScore()
-            switchTurn()
-    else:
-#outro
-print('The max number of rolls by a player: ', maxRollCount)
-print("Player 1 score: ", score1)
-print("Player 2 score: ", score2)
-#determine the winner
-if(score1 >= 50):
-    winner = 1
-elif(score2 >= 50):
-    winner = 2
-print("Congratulations Player", winner,". You WIN!")
-print("Thanks for Playing!")
+        else:
+            pass
+    #outro
+    print("Player 1 score: ", score1)
+    print("Player 2 score: ", score2)
+    #determine the winner
+    if(score1 >= 50):
+        winner = 1
+    elif(score2 >= 50):
+        winner = 2
+    print("Congratulations Player", winner,". You WIN!")
+    print("Thanks for Playing!")
+    
+main()
 
 
 
@@ -132,6 +146,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
