@@ -4,13 +4,13 @@
 import random
 
 rolled = 0
+potentialScore = 0
 score1 = 0
 score2 = 0
 winner = 0
 currentPlayersTurn = 0
 
 def takeTurn(): #returns players decision and information
-    
     rollOrHold = input("Roll(r)\Hold(h)?: ") #also check if it is valid
     rollOrHold = rollOrHold.lower()
     if (rollOrHold == "r" or rollOrHold == "h"):
@@ -19,55 +19,67 @@ def takeTurn(): #returns players decision and information
         takeTurn()
     
 def diceRoll(): #rolls random number, part of players decision
+    global rolled, potentialScore
     rolled = random.randint(1,6) #declare rolled value
+    rolled = int(rolled)
     print("Roll: ", rolled)  
     if (rolled != 1):
+        potentialScore += rolled
+        print("Turn total: ",potentialScore)
         return True
     else:
         return False
 def resetTurnValues(): #reset on game restart or turn change
-    pass 
+    global potentialScore
+    potentialScore = 0
 def switchTurn(): #swap player controls
+    global currentPlayersTurn 
     if(currentPlayersTurn == 1):
         currentPlayersTurn = 2
     else:
         currentPlayersTurn = 1
-def addTurnScore(): #add turn total
-    pass
-def addSafeScore(): #turn total
-    pass 
+    print("It is player", currentPlayersTurn, "'s turn:")
+def addScore(): #turn total
+    global currentPlayersTurn, score1, score2
+    if(currentPlayersTurn == 1):
+        score1 += potentialScore
+    else:
+        score2 += potentialScore
+    print("Player 1 score: ", score1)
+    print("Player 2 score: ", score2)
+    resetTurnValues()
 def winner(): #print winner text and give option to restart
     pass 
     
 
 def main(): #intro, while loop, outro,
+    global rolled, potentialScore, score1, score2, winner
     rolled = 0
+    potentialScore = 0
     score1 = 0
     score2 = 0
     winner = 0
-
-    currentPlayersTurn = random.randint(1,2) 
-    
     
     #intro
     print("Let's Play the Pig Game!")
     print("=======GOOD LUCK========")
     print("Player 1 score: ", score1)
-    print("Player 2 score: ", score2)
+    print("Player 2 score: ", score2,"\n")
 
     currentPlayersTurn = random.randint(1,2) 
     print("It is player", currentPlayersTurn, "'s turn:")
     #while loop()
-    while(): #scores < 50
+    while(score1 <50 or score2 <50): #scores < 50
+
         if (takeTurn() == "r"):
             if (diceRoll()): #if dice roll is not 1
+                continue
+            else: #if dice roll is 1    
                 resetTurnValues()
                 switchTurn()
-            else: #if dice roll is 1          
-                addScore()
-            switchTurn()
         else:
-            pass
+            addScore()
+            switchTurn()
     #outro
     print("Player 1 score: ", score1)
     print("Player 2 score: ", score2)
@@ -153,6 +165,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
