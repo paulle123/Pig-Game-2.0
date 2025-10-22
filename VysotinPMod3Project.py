@@ -1,26 +1,52 @@
 #Author: Pavlo Vysotin
-def intro()
+
+def main() #intro, while loop, outro, 
+#intro
+#while loop()
+#outro
+    while()#scores < 50
+        if (takeTurn() is "r"):
+            if (dice()):
+        
+            else:
+                resetTurnValues()
+                switchTurn()
+                
+def takeTurn() #returns players decision 
     pass
-def diceRoll()
-    pass
-def takeTurn()
-    pass
-def resetTurnValues()
-    pass
-def switchTurn()
-    pass
-def addScore()
-    pass
-def winner()
-    pass
+def diceRoll() #rolls random number, part of players decision
+    rolled = random.randint(1,6) #declare rolled value
+    print("Roll: ", rolled)  
+    if (rolled == 1)
+        return False
+    else:
+        return True
+def resetTurnValues() #reset on game restart or turn change
+    pass =
+def switchTurn() #swap player controls
+    pass 
+def addScore() #turn total
+    pass 
+def winner() #print winner text and give option to restart
+    pass 
+
+
+main()
+if (takeTurn() is "r"):
+    if (dice()):
+        
+    else:
+        resetTurnValues()
+        switchTurn()
+
+
+
+
+#//////////////////////////////////////////////////////////////////////
 
 
 #import a random module
 import random
-
-
-
-
 
 #declare variables
 score1 = 0
@@ -87,6 +113,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
