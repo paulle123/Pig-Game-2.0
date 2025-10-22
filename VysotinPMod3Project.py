@@ -17,6 +17,8 @@
 
 #githup push 1 test by brice
 
+#git test 2
+
 #import a random module
 import random
 
@@ -85,3 +87,4 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
