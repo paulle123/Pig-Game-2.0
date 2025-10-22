@@ -14,6 +14,9 @@
 
   * I have not given my code to any other student and will not share this code with anyone under any circumstances.
 '''
+
+#githup push 1 test by brice
+
 #import a random module
 import random
 
@@ -80,4 +83,5 @@ elif(score2 >= 50):
     winner = 2
 
 print("Congratulations Player", winner,". You WIN!")
+
 print("Thanks for Playing!")
