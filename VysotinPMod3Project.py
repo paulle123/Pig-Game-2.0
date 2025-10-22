@@ -50,6 +50,9 @@ def main(): #intro, while loop, outro,
     print("=======GOOD LUCK========")
     print("Player 1 score: ", score1)
     print("Player 2 score: ", score2)
+
+    currentPlayersTurn = random.randint(1,2) 
+    print("It is player", currentPlayersTurn, "'s turn:")
     #while loop()
     while(): #scores < 50
         if (takeTurn() == "r"):
@@ -146,6 +149,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
