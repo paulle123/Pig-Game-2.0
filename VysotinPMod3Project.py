@@ -1,4 +1,12 @@
 #Author: Pavlo Vysotin
+intro()
+rollDice()
+takeTurn()
+resetTurnValues()
+switchTurn()
+addScore()
+winner()
+
 
 #import a random module
 import random
@@ -72,5 +80,6 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
