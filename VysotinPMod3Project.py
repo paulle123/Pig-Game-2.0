@@ -1,43 +1,64 @@
-#Author: Pavlo Vysotin
+#Author: Pavlo Vysotin    
 
-def main() #intro, while loop, outro, 
-#intro
-#while loop()
-#outro
-    while()#scores < 50
-        if (takeTurn() is "r"):
-            if (dice()):
-        
-            else:
-                resetTurnValues()
-                switchTurn()
-                
-def takeTurn() #returns players decision 
-    pass
+#import random module
+import random
+
+rolled = 0
+
+def takeTurn() #returns players decision and information
+    
+    rollOrHold = input("Roll(r)\Hold(h)?: ") #also check if it is valid
+    rollOrHold = rollOrHold.lower()
+    if (rollOrHold is "r" or rollOrHold is "h"):
+        return rollOrHold
+    else:
+        takeTurn()
+    
 def diceRoll() #rolls random number, part of players decision
     rolled = random.randint(1,6) #declare rolled value
     print("Roll: ", rolled)  
-    if (rolled == 1)
-        return False
-    else:
+    if (rolled != 1)
         return True
+    else:
+        return False
 def resetTurnValues() #reset on game restart or turn change
     pass =
 def switchTurn() #swap player controls
     pass 
-def addScore() #turn total
+def addTurnScore() #add turn total
+def addSafeScore() #turn total
     pass 
 def winner() #print winner text and give option to restart
     pass 
+    
 
-
-main()
-if (takeTurn() is "r"):
-    if (dice()):
-        
+def main() #intro, while loop, outro, 
+#intro
+print("Let's Play the Pig Game!")
+print("=======GOOD LUCK========")
+print("Player 1 score: ", score1)
+print("Player 2 score: ", score2)
+#while loop()
+while()#scores < 50
+    if (takeTurn() is "r"):
+        if (diceRoll()): #if dice roll is not 1
+            resetTurnValues()
+            switchTurn()
+        else: #if dice roll is 1          
+            addScore()
+            switchTurn()
     else:
-        resetTurnValues()
-        switchTurn()
+#outro
+print('The max number of rolls by a player: ', maxRollCount)
+print("Player 1 score: ", score1)
+print("Player 2 score: ", score2)
+#determine the winner
+if(score1 >= 50):
+    winner = 1
+elif(score2 >= 50):
+    winner = 2
+print("Congratulations Player", winner,". You WIN!")
+print("Thanks for Playing!")
 
 
 
@@ -68,9 +89,7 @@ while(score1 < 50 and score2 < 50):
     
     turnTotal = 0   #set turnTotal to 0 in the beggining of each round
     rollCount = 0   #count the number of rolls
-    
-    print("It is player", turn, "'s turn:")   #output the player's turn 
-    decision = input("Roll(r)\Hold(h)?: ")   #ask to make decision
+
     
     while(decision != "h"):   #loop that continues till player decision == h or rolled == 1
         rollCount +=1
@@ -113,6 +132,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
