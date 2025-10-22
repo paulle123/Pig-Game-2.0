@@ -1,26 +1,11 @@
-'''
-  * Class: 44-141 Computer Programming I
-
-  * Author: Pavlo Vysotin
-
-  * Description: PIG is a folk jeopardy dice game with simple rules: Two players race to reach 50 points.
-    Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player holds and scores the sum of the rolls
-
-  * Due: 10.8.25
-
-  * I pledge that I have completed the programming assignment independently.
-
-  * I have not copied the code from a student or any source.
-
-  * I have not given my code to any other student and will not share this code with anyone under any circumstances.
-'''
-
-#githup push 1 test by brice
-
-#git test 2
+#Author: Pavlo Vysotin
 
 #import a random module
 import random
+
+
+
+
 
 #declare variables
 score1 = 0
@@ -87,4 +72,5 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
