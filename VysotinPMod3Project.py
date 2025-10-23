@@ -11,6 +11,7 @@ winner = 0
 currentPlayersTurn = 0
 
 def welcome():
+    global score1, score2, winner
     print("Player 1 score: ", score1)
     print("Player 2 score: ", score2)
     #determine the winner
@@ -20,6 +21,7 @@ def welcome():
         winner = 2
     print("Congratulations Player", winner,". You WIN!")
     print("Thanks for Playing!")
+    
 def takeTurn(): #returns players decision and information
     rollOrHold = input("Roll(r)\Hold(h)?: ") #also check if it is valid
     rollOrHold = rollOrHold.lower()
@@ -27,6 +29,7 @@ def takeTurn(): #returns players decision and information
         return rollOrHold
     else:
         takeTurn()
+        
 def diceRoll(): #rolls random number, part of players decision
     global rolled, potentialScore
     rolled = random.randint(1,6) #declare rolled value
@@ -38,6 +41,7 @@ def diceRoll(): #rolls random number, part of players decision
         return True
     else:
         return False
+        
 def resetTurnValues(): #reset on game restart or turn change
     global potentialScore
     potentialScore = 0
@@ -49,6 +53,7 @@ def switchTurn(): #swap player controls
         else:
             currentPlayersTurn = 1
         print("It is player", currentPlayersTurn, "'s turn:")
+        
 def addScore(): #turn total
     global currentPlayersTurn, score1, score2
     if(currentPlayersTurn == 1):
@@ -58,6 +63,7 @@ def addScore(): #turn total
     print("Player 1 score: ", score1)
     print("Player 2 score: ", score2, "\n")
     resetTurnValues()
+    
 def winner(): #print winner text and give option to restart
     print("Player 1 score: ", score1)
     print("Player 2 score: ", score2, "\n")
@@ -166,6 +172,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
