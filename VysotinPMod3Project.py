@@ -49,7 +49,15 @@ def addScore(): #turn total
     print("Player 2 score: ", score2, "\n")
     resetTurnValues()
 def winner(): #print winner text and give option to restart
-    pass 
+    print("Player 1 score: ", score1)
+    print("Player 2 score: ", score2, "\n")
+    #determine the winner
+    if(score1 >= 50):
+        winner = 1
+    elif(score2 >= 50):
+        winner = 2
+    print("Congratulations Player", winner,". You WIN!")
+    print("Thanks for Playing!")
     
 
 def main(): #intro, while loop, outro,
@@ -80,15 +88,7 @@ def main(): #intro, while loop, outro,
             addScore()
             switchTurn()
     #outro
-    print("Player 1 score: ", score1)
-    print("Player 2 score: ", score2)
-    #determine the winner
-    if(score1 >= 50):
-        winner = 1
-    elif(score2 >= 50):
-        winner = 2
-    print("Congratulations Player", winner,". You WIN!")
-    print("Thanks for Playing!")
+    winner()
     
 main()
 
@@ -163,6 +163,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
