@@ -15,7 +15,7 @@ def welcome():
     print("Let's Play the Pig Game!")
     print("=======GOOD LUCK========")
     printScore()
-    turn = random.randint(1,2)
+    currentPlayersTurn = random.randint(1,2)
     print("It is player", currentPlayersTurn, "'s turn:")
 
 def printScore():
@@ -170,6 +170,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
