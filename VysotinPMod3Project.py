@@ -25,7 +25,7 @@ def diceRoll(): #rolls random number, part of players decision
     print("Roll: ", rolled)  
     if (rolled != 1):
         potentialScore += rolled
-        print("Turn total: ",potentialScore)
+        print("Turn total: ",potentialScore, '\n')
         return True
     else:
         return False
@@ -165,6 +165,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
