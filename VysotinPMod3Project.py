@@ -17,7 +17,6 @@ def takeTurn(): #returns players decision and information
         return rollOrHold
     else:
         takeTurn()
-    
 def diceRoll(): #rolls random number, part of players decision
     global rolled, potentialScore
     rolled = random.randint(1,6) #declare rolled value
@@ -34,11 +33,12 @@ def resetTurnValues(): #reset on game restart or turn change
     potentialScore = 0
 def switchTurn(): #swap player controls
     global currentPlayersTurn 
-    if(currentPlayersTurn == 1):
-        currentPlayersTurn = 2
-    else:
-        currentPlayersTurn = 1
-    print("It is player", currentPlayersTurn, "'s turn:")
+    if (score1 <50 or score2 <50):
+        if(currentPlayersTurn == 1):
+            currentPlayersTurn = 2
+        else:
+            currentPlayersTurn = 1
+        print("It is player", currentPlayersTurn, "'s turn:")
 def addScore(): #turn total
     global currentPlayersTurn, score1, score2
     if(currentPlayersTurn == 1):
@@ -69,8 +69,7 @@ def main(): #intro, while loop, outro,
     currentPlayersTurn = random.randint(1,2) 
     print("It is player", currentPlayersTurn, "'s turn:")
     #while loop()
-    while(score1 <50 or score2 <50): #scores < 50
-
+    while(score1 <50 and score2 <50): #scores < 50
         if (takeTurn() == "r"):
             if (diceRoll()): #if dice roll is not 1
                 continue
@@ -164,6 +163,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
