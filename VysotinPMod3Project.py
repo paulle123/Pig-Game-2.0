@@ -64,8 +64,8 @@ def addScore(): #turn total
     resetTurnValues()
     
 def winner(): #print winner text and give option to restart
+    global score1, score2, winner
     printScore()
-    #determine the winner
     if(score1 >= 50):
         winner = 1
     elif(score2 >= 50):
@@ -170,6 +170,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
