@@ -52,6 +52,7 @@ def switchTurn(): #swap player controls
         else:
             currentPlayersTurn = 1
         print("It is player", currentPlayersTurn, "'s turn:")
+    printScore()
         
 def addScore(): #turn total
     global currentPlayersTurn, score1, score2
@@ -86,7 +87,6 @@ def main(): #intro, while loop, outro,
     while(score1 <50 and score2 <50): #scores < 50
         if (takeTurn() == "r"):
             if (diceRoll()): #if dice roll is not 1
-                printScore()
                 continue
             else: #if dice roll is 1    
                 resetTurnValues()
@@ -170,6 +170,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
