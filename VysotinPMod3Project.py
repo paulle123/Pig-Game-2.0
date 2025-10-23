@@ -44,15 +44,16 @@ def diceRoll(): #rolls random number, part of players decision
 def resetTurnValues(): #reset on game restart or turn change
     global potentialScore
     potentialScore = 0
+    
 def switchTurn(): #swap player controls
     global currentPlayersTurn 
     if (score1 <50 or score2 <50):
+        printScore()
         if(currentPlayersTurn == 1):
             currentPlayersTurn = 2
         else:
             currentPlayersTurn = 1
         print("It is player", currentPlayersTurn, "'s turn:")
-    printScore()
         
 def addScore(): #turn total
     global currentPlayersTurn, score1, score2
@@ -60,7 +61,6 @@ def addScore(): #turn total
         score1 += potentialScore
     else:
         score2 += potentialScore
-    printScore()
     resetTurnValues()
     
 def winner(): #print winner text and give option to restart
@@ -170,6 +170,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
