@@ -16,6 +16,7 @@ def welcome():
     print("=======GOOD LUCK========")
     printScore()
     turn = random.randint(1,2)
+    print("It is player", currentPlayersTurn, "'s turn:")
 
 def printScore():
     print("Player 1 score: ", score1)
@@ -169,6 +170,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
