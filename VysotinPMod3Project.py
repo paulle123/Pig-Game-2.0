@@ -10,6 +10,16 @@ score2 = 0
 winner = 0
 currentPlayersTurn = 0
 
+def welcome():
+    print("Player 1 score: ", score1)
+    print("Player 2 score: ", score2)
+    #determine the winner
+    if(score1 >= 50):
+        winner = 1
+    elif(score2 >= 50):
+        winner = 2
+    print("Congratulations Player", winner,". You WIN!")
+    print("Thanks for Playing!")
 def takeTurn(): #returns players decision and information
     rollOrHold = input("Roll(r)\Hold(h)?: ") #also check if it is valid
     rollOrHold = rollOrHold.lower()
@@ -59,7 +69,6 @@ def winner(): #print winner text and give option to restart
     print("Congratulations Player", winner,". You WIN!")
     print("Thanks for Playing!")
     
-
 def main(): #intro, while loop, outro,
     global rolled, potentialScore, score1, score2, winner
     rolled = 0
@@ -69,13 +78,7 @@ def main(): #intro, while loop, outro,
     winner = 0
     
     #intro
-    print("Let's Play the Pig Game!")
-    print("=======GOOD LUCK========")
-    print("Player 1 score: ", score1)
-    print("Player 2 score: ", score2,"\n")
-
-    currentPlayersTurn = random.randint(1,2) 
-    print("It is player", currentPlayersTurn, "'s turn:")
+    welcome()
     #while loop()
     while(score1 <50 and score2 <50): #scores < 50
         if (takeTurn() == "r"):
@@ -163,6 +166,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
