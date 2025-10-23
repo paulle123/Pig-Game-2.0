@@ -11,7 +11,7 @@ winner = 0
 currentPlayersTurn = 0
 
 def welcome():
-    global score1, score2, turn
+    global score1, score2, currentPlayersTurn
     print("Let's Play the Pig Game!")
     print("=======GOOD LUCK========")
     printScore()
@@ -170,6 +170,7 @@ elif(score2 >= 50):
 print("Congratulations Player", winner,". You WIN!")
 
 print("Thanks for Playing!")
+
 
 
 
