@@ -1,11 +1,17 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, redirect, url_for
 from pigDiceGame import PigDiceGame
+import os
 
 app = Flask(__name__)
-app.secret_key = "donthackpls" 
+app.secret_key = os.environ.get("SECRET_KEY", "dev-only-key") 
 
-game = PigDiceGame() # create one instance of the game
-winCheck = False # global variable that checks whether there's a winner; saves from game oversaving
+def load_game():
+    if "game" in session:
+        return PigDiceGame.from_dict(session["game"])
+    return PigDiceGame()
+
+def save_game(game):
+    session["game"] = game.to_dict()
 
 # homepage
 @app.route("/")
@@ -29,8 +35,7 @@ def intro():
 # play page
 @app.route("/play", methods=["GET", "POST"])
 def play(): # defines a function that runs every time someone visits or interacts with /play
-    global winCheck # makes sure that the same game doesn't get saved multiple times
-    rolled = None # keeps track of currrent number; use instead of last_roll
+    game = load_game()
 
     # check if user pressed on button
     if request.method == "POST":
@@ -41,23 +46,23 @@ def play(): # defines a function that runs every time someone visits or interact
             game.roll()
         elif action == "hold":
             game.hold()
-
-        # check if someone won
-        winner = game.check_winner()
-        if winner:  # prints message and save results
-            if winCheck == False:
-                game.save_result()
-                winCheck = True
-        # resets the values and starts game again
-        if action == "reset":
-            winCheck = False
+        elif action == "reset":
             game.reset()
+            session["saved"] = False
+        elif action == "homepage":
+            game.reset()
+            session["saved"] = False
+            save_game(game)
+            return redirect(url_for("home"))
         
-        if action == "homepage":
-            winCheck = False
-            game.reset()
-            return home()
-    # show the webpage and allows to use variables below
+        if game.check_winner() and not session.get("saved"):
+            game.save_result()
+            session["saved"] = True
+
+        save_game(game)
+        # Post/Redirect/Get
+        return redirect(url_for("play"))
+    
     return render_template(
         "play.html",
         rolled=game.last_roll,
@@ -68,12 +73,20 @@ def play(): # defines a function that runs every time someone visits or interact
         winner=game.winner,
     )
 
+# polling
+@app.route("/state")
+def state():
+    game = load_game()
+    return game.to_dict()
+
 # history page
 @app.route('/history')
 def history():
+    game = load_game()
     data = game.getLastFiveResults()
 
     return render_template("history.html", data=data)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000,
+debug=os.environ.get("FLASK_DEBUG") == "1")

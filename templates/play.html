@@ -78,5 +78,22 @@
             </form>
         </div>
     {% endif %}
+    
+    <script> // polling script
+        let lastState = null;
+        setInterval(async () => {
+            const res = await fetch("/state");
+            const game = await res.json();
+            const snapshot = JSON.stringify(game);
+
+            if (lastState === null) {
+                lastState = snapshot;
+                return;
+            }
+            if (snapshot !== lastState) {
+                location.reload();
+            }
+        }, 1000);
+    </script>
 </body>
 </html>

@@ -74,3 +74,20 @@ class PigDiceGame:
 
         table += "</table>"
         return table
+    
+    def to_dict(self):
+        return {
+        "score1": self.score1,
+        "score2": self.score2,
+        "current": self.current,
+        "potential": self.potential,
+        "last_roll": self.last_roll,
+        "winner": self.winner,
+    }
+
+    @classmethod
+    def from_dict(cls, state):
+        game = cls()
+        for key, value in state.items():
+            setattr(game, key, value)
+        return game
